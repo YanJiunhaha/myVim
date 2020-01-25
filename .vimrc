@@ -1,3 +1,4 @@
+set fileencodings=utf8,big5
 " key mapping
 "inoremap {<Cr> {<Cr>}<Esc>ko<Tab>
 "inoremap jk <esc>
