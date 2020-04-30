@@ -1,7 +1,7 @@
 set fileencodings=utf8,big5
 " key mapping
 "inoremap {<Cr> {<Cr>}<Esc>ko<Tab>
-"inoremap jk <esc>
+inoremap jf <esc>
 
 " auto script
 autocmd WinEnter * setlocal cursorcolumn
@@ -40,17 +40,18 @@ set autoindent
 "set foldmethod=indent
 
 " mouse mod
-set mouse=a
+"set mouse=a
+
 "set paste
 set clipboard=unnamed
 
 " theme color
 set list
 syntax on
-try
-    colorscheme murphy
-catch
-endtry
+"try
+"    colorscheme murphy
+"catch
+"endtry
 
 " line high light
 set cursorcolumn
