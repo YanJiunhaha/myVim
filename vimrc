@@ -40,7 +40,7 @@ set autoindent
 "set foldmethod=indent
 
 " mouse mod
-"set mouse=a
+set mouse=a
 
 "set paste
 set clipboard=unnamed
@@ -49,7 +49,7 @@ set clipboard=unnamed
 set list
 syntax on
 "try
-"    colorscheme murphy
+colorscheme murphy
 "catch
 "endtry
 
