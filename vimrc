@@ -31,9 +31,9 @@ set number
 set relativenumber
 
 " tab
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set tabstop=8
+set shiftwidth=8
+"set expandtab
 %retab!
 set autoindent
 
@@ -54,8 +54,8 @@ colorscheme murphy
 "endtry
 
 " line high light
-set cursorcolumn
-set cursorline
+"set cursorcolumn
+"set cursorline
 
 " color customer
 set t_Co=256
