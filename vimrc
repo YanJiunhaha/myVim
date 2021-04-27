@@ -3,6 +3,14 @@ set fileencodings=utf8,big5
 "inoremap {<Cr> {<Cr>}<Esc>ko<Tab>
 inoremap jf <esc>
 
+" alias function
+fun! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfun
+call SetupCommandAlias("W","w")
+
 " auto script
 autocmd WinEnter * setlocal cursorcolumn
 autocmd WinLeave * setlocal nocursorcolumn
@@ -33,6 +41,8 @@ set relativenumber
 " tab
 set tabstop=8
 set shiftwidth=8
+"set tabstop=4
+"set shiftwidth=4
 "set expandtab
 %retab!
 set autoindent
