@@ -1,14 +1,14 @@
 set fileencodings=utf8,big5
 " key mapping
 "inoremap {<Cr> {<Cr>}<Esc>ko<Tab>
-inoremap jf <esc>
+"inoremap jf <esc>
 
 " alias function
-fun! SetupCommandAlias(from, to)
-  exec 'cnoreabbrev <expr> '.a:from
-        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
-        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
-endfun
+function! SetupCommandAlias(from, to)
+    exec 'cnoreabbrev <expr> '.a:from
+    \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+    \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfunction
 call SetupCommandAlias("W","w")
 
 " auto script
@@ -18,7 +18,7 @@ autocmd WinLeave * setlocal nocursorcolumn
 autocmd WinEnter * setlocal relativenumber
 autocmd WinLeave * setlocal norelativenumber
 
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 
 " status
 set showcmd
@@ -39,11 +39,9 @@ set number
 set relativenumber
 
 " tab
-set tabstop=8
-set shiftwidth=8
-"set tabstop=4
-"set shiftwidth=4
-"set expandtab
+set tabstop=4
+set shiftwidth=4
+set expandtab
 %retab!
 set autoindent
 
@@ -56,7 +54,7 @@ set mouse=a
 set clipboard=unnamed
 
 " theme color
-set list
+set list " show all white spaces as character
 syntax on
 "try
 colorscheme murphy
