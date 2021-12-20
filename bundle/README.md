@@ -9,14 +9,16 @@
 
 * indentLine
   - 顯示縮排對齊
+
 * nerdtree
   nerdtree-git-plugin
   - 顯示檔案目錄樹
-tlib_vim
-vim-addon-mw-utils
+
 * vim-sensible
   - 讓默認vim更人性
 
 * vim-snipmate
   vim-snippets
+  tlib_vim
+  vim-addon-mw-utils
   - 自動寫好code
