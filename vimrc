@@ -99,11 +99,11 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 "" Auto complete code
-"Plug 'MarcWeber/vim-addon-mw-utils'
-"Plug 'tomtom/tlib_vim'
-"Plug 'garbas/vim-snipmate'
-"Plug 'honza/vim-snippets'
-"let g:snipMate = { 'snippet_version' : 1 }
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+let g:snipMate = { 'snippet_version' : 1 }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "" Filemanager
