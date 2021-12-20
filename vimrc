@@ -99,3 +99,4 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:molokai_original = 1
 let g:rehash256 = 1
+let g:snipMate = { 'snippet_version' : 1 }
