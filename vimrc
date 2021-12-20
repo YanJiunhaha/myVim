@@ -62,8 +62,8 @@ colorscheme murphy
 "endtry
 
 " line high light
-"set cursorcolumn
-"set cursorline
+set cursorcolumn
+set cursorline
 
 " color customer
 set t_Co=256
@@ -79,24 +79,54 @@ hi CursorColumn cterm=bold ctermfg=NONE ctermbg=DarkGrey
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" plugins
-execute pathogen#infect()
-filetype plugin indent on
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" Reference: https://github.com/junegunn/vim-plug
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
 
-map <F5> :NERDTree<CR>
+" Make sure you use single quotes
+" Shorthand notation: 
+"   Plug 'username/toolname'
+"   => fetch url: https://github.com/username/toolname
 
+"" powerful status bar
+Plug 'vim-airline/vim-airline'
+
+"" Code alignment tool
+Plug 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+"" Auto complete code
+"Plug 'MarcWeber/vim-addon-mw-utils'
+"Plug 'tomtom/tlib_vim'
+"Plug 'garbas/vim-snipmate'
+"Plug 'honza/vim-snippets'
+"let g:snipMate = { 'snippet_version' : 1 }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"" Filemanager
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' } " On-demand loading
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' } " On-demand loading
+
+"" useful colorscheme selector
+Plug 'https://github.com/c9s/colorselector.vim.git'
+
+"" make vim more sensible
+Plug 'https://github.com/tpope/vim-sensible.git'
+
+"" show indent line
+Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '|'
 let g:indentLine_enabled = 1
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"" fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:molokai_original = 1
-let g:rehash256 = 1
-let g:snipMate = { 'snippet_version' : 1 }
+"" auto commentary
+Plug 'https://github.com/tpope/vim-commentary.git'
+
+" Initialize plugin system
+call plug#end()
