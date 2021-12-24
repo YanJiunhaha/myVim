@@ -128,5 +128,11 @@ Plug 'junegunn/fzf.vim'
 "" auto commentary
 Plug 'https://github.com/tpope/vim-commentary.git'
 
+"" easy to delete/add/change surroundings
+Plug 'https://github.com/tpope/vim-surround.git'
+
+Plug 'zivyangll/git-blame.vim'
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
 " Initialize plugin system
 call plug#end()
