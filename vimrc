@@ -104,7 +104,6 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 let g:snipMate = { 'snippet_version' : 1 }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "" Filemanager
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' } " On-demand loading
