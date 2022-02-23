@@ -3,6 +3,11 @@ set fileencodings=utf8,big5
 "inoremap {<Cr> {<Cr>}<Esc>ko<Tab>
 "inoremap jf <esc>
 
+" exit terminal mode
+"if exists(':tnoremap')
+"    tnoremap <Esc> <C-\><C-n>
+"endif
+
 " alias function
 function! SetupCommandAlias(from, to)
     exec 'cnoreabbrev <expr> '.a:from
@@ -18,6 +23,11 @@ autocmd WinLeave * setlocal nocursorcolumn
 autocmd WinEnter * setlocal relativenumber
 autocmd WinLeave * setlocal norelativenumber
 
+function! CleanupSpace()
+    :%s/\s\+$//e
+    :%s/ \+\t/\t/e
+endfunction
+command! CleanupSpace call CleanupSpace()
 "autocmd BufWritePre * :%s/\s\+$//e
 
 " status
@@ -84,7 +94,7 @@ hi CursorColumn cterm=bold ctermfg=NONE ctermbg=DarkGrey
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
-" Shorthand notation: 
+" Shorthand notation:
 "   Plug 'username/toolname'
 "   => fetch url: https://github.com/username/toolname
 
@@ -120,9 +130,6 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '|'
 let g:indentLine_enabled = 1
 
-"" fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 
 "" auto commentary
 Plug 'https://github.com/tpope/vim-commentary.git'
@@ -131,7 +138,22 @@ Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 
 Plug 'zivyangll/git-blame.vim'
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
+"" search and move to
+Plug 'easymotion/vim-easymotion'
+map <Leader> <Plug>(easymotion-prefix)
+
+"" just use in neovim
+if exists('nvim')
+    "" fuzzy finder
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    "" floating terminal
+    Plug 'voldikss/vim-floaterm'
+    command! XPLR FloatermNew --width=0.8 --height=0.8 xplr
+endif
 
 " Initialize plugin system
 call plug#end()
+
+source $HOME/.vim/andes.vim
