@@ -67,8 +67,9 @@ set clipboard=unnamed
 set list " show all white spaces as character
 syntax on
 "try
-colorscheme murphy
+"    colorscheme molokai
 "catch
+colorscheme murphy
 "endtry
 
 " line high light
@@ -143,8 +144,7 @@ Plug 'zivyangll/git-blame.vim'
 Plug 'easymotion/vim-easymotion'
 map <Leader> <Plug>(easymotion-prefix)
 
-"" just use in neovim
-if exists('nvim')
+if exists(':tnoremap')
     "" fuzzy finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
