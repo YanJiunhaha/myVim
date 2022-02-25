@@ -168,4 +168,10 @@ endif
 " Initialize plugin system
 call plug#end()
 
-source $HOME/.vim/andes.vim
+if filereadable($HOME . "/.vim/andes.vim")
+    source $HOME/.vim/andes.vim
+endif
+
+if filereadable($HOME . "/.vim/custom.vim")
+    source $HOME/.vim/custom.vim
+endif
