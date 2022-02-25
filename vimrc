@@ -29,6 +29,18 @@ function! CleanupSpace()
 endfunction
 command! CleanupSpace call CleanupSpace()
 "autocmd BufWritePre * :%s/\s\+$//e
+"
+function! UnifyTabIndent()
+    :set expandtab
+    :%retab!
+    :set noexpandtab
+    :%s/^ \{8\}/\t/e
+    :%s/^\(\t\+\) \{8\}/\1\t/e
+    :%s/^\(\t\+\) \{8\}/\1\t/e
+    :%s/^\(\t\+\) \{8\}/\1\t/e
+    :%s/^\(\t\+\) \{8\}/\1\t/e
+endfunction
+command! UnifyTabIndent call UnifyTabIndent()
 
 " status
 set showcmd
