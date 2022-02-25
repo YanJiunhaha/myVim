@@ -17,11 +17,15 @@ endfunction
 call SetupCommandAlias("W","w")
 
 " auto script
-autocmd WinEnter * setlocal cursorcolumn
-autocmd WinLeave * setlocal nocursorcolumn
+augroup cur_col
+    autocmd WinEnter * setlocal cursorcolumn
+    autocmd WinLeave * setlocal nocursorcolumn
+augroup END
 
-autocmd WinEnter * setlocal relativenumber
-autocmd WinLeave * setlocal norelativenumber
+augroup num_rel
+    autocmd WinEnter * setlocal relativenumber
+    autocmd WinLeave * setlocal norelativenumber
+augroup END
 
 function! CleanupSpace()
     :%s/\s\+$//e
