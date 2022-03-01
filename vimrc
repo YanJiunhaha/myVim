@@ -84,7 +84,7 @@ set autoindent
 
 " mouse mod
 set mouse=a
-nnoremap <C-LeftMouse> <LeftMouse>:<C-U>let @/='\<'.expand("<cword>").'\>'<CR>:set hlsearch<CR>
+nnoremap <RightMouse> <RightMouse>:<C-U>let @/='\<'.expand("<cword>").'\>'<CR>:set hlsearch<CR>
 
 "set paste
 set clipboard=unnamed
