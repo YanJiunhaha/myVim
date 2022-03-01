@@ -46,6 +46,15 @@ function! UnifyTabIndent()
 endfunction
 command! UnifyTabIndent call UnifyTabIndent()
 
+function! IwhiteToggle()
+    if &diffopt =~ 'iwhite'
+        set diffopt-=iwhite
+    else
+        set diffopt+=iwhite
+    endif
+endfunction
+command! IwhiteToggle call IwhiteToggle()
+
 " status
 set showcmd
 
@@ -75,6 +84,7 @@ set autoindent
 
 " mouse mod
 set mouse=a
+nnoremap <C-LeftMouse> <LeftMouse>:<C-U>let @/='\<'.expand("<cword>").'\>'<CR>:set hlsearch<CR>
 
 "set paste
 set clipboard=unnamed
@@ -82,11 +92,11 @@ set clipboard=unnamed
 " theme color
 set list " show all white spaces as character
 syntax on
-"try
-"    colorscheme molokai
-"catch
-colorscheme murphy
-"endtry
+try
+    colorscheme gruvbox
+catch
+    colorscheme murphy
+endtry
 
 " line high light
 set cursorcolumn
@@ -167,6 +177,7 @@ if exists(':tnoremap')
     "" floating terminal
     Plug 'voldikss/vim-floaterm'
     command! XPLR FloatermNew --width=0.8 --height=0.8 xplr
+    command! RANGER FloatermNew --width=0.8 --height=0.8 ranger
 endif
 
 " Initialize plugin system
