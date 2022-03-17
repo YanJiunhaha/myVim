@@ -178,6 +178,8 @@ if exists(':tnoremap')
     Plug 'voldikss/vim-floaterm'
     command! XPLR FloatermNew --width=0.8 --height=0.8 xplr
     command! RANGER FloatermNew --width=0.8 --height=0.8 ranger
+    "" preview markdown with browser
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 endif
 
 " Initialize plugin system
